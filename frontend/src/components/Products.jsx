@@ -11,15 +11,15 @@ const Products = ({ product }) => {
       </a>
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
+
+        <Ratings
+          value={product.rating}
+          text={`${product.numReviews} Avaliações`}
+          color={"#F6BE00"}
+        />
+
         <Card.Text>
-          <Ratings
-            value={product.rating}
-            text={`${product.numReviews} Avaliações`}
-            color={"#F6BE00"}
-          />
-        </Card.Text>
-        <Card.Text>
-          <h4>R$ {product.price}</h4>
+          <Card.Title>R$ {product.price}</Card.Title>
           Estoque: {product.countInStock}
         </Card.Text>
       </Card.Body>

@@ -7,17 +7,22 @@ import Footer from "./components/Footer";
 // PAGES
 import Homepage from "./pages/Homepage";
 
+// ROUTERS
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
       <main className="py-3">
         <Container>
-          <Homepage />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+          </Routes>
         </Container>
       </main>
       <Footer />
-    </div>
+    </BrowserRouter>
   );
 }
 

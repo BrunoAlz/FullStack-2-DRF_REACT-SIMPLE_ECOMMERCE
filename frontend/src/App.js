@@ -9,6 +9,7 @@ import Homepage from "./pages/Homepage";
 
 // ROUTERS
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductsPage from "./pages/ProductsPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Homepage />} />
+            <Route path="/product/:id" element={<ProductsPage />} />
           </Routes>
         </Container>
       </main>

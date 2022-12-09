@@ -60,23 +60,26 @@ const ProductsPage = ({ match }) => {
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
-                  <Col>
-                  Valor: 
-                  </Col>
-                  <Col>
-                  {product.price}
-                  </Col>
+                  <Col>Valor:</Col>
+                  <Col>{product.price}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
+                  <Col>Estoque:</Col>
                   <Col>
-                  Estoque: 
-                  </Col>
-                  <Col>
-                  {product.countInStock}
+                    {product.countInStock > 0 ? "Em Estoque" : "Sem Estoque"}
                   </Col>
                 </Row>
+              </ListGroup.Item>
+              <ListGroup.Item className="text-center">
+                {product.countInStock > 0 ? (
+                  <Button type="button">Adicionar ao Carrinho</Button>
+                ) : (
+                  <Button type="button" disabled>
+                    Adicionar ao Carrinho
+                  </Button>
+                )}
               </ListGroup.Item>
             </ListGroup>
           </Card>

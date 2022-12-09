@@ -15,13 +15,28 @@ import {
 // COMPONENTS
 import Ratings from "../components/Ratings";
 
-// DATA
-import mockProductsData from "../data/mockProductsData";
+// ROUTER
 import { useParams } from "react-router-dom";
+
+// HOOKS
+import { useState, useEffect } from "react";
+
+// AXIOS
+import axios from "axios";
 
 const ProductsPage = ({ match }) => {
   const params = useParams();
-  const product = mockProductsData.find((p) => p._id === params.id);
+
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const { data } = await axios.get(`/api/products/${params.id}`).then();
+      setProduct(data);
+    }
+
+    fetchProducts();
+  }, [params]);
 
   return (
     <div>

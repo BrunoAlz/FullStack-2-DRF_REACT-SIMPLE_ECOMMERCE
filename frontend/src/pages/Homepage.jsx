@@ -1,9 +1,6 @@
 // BOOSTRAP
 import { Row, Col } from "react-bootstrap";
 
-// DATA
-import mockProductsData from "../data/mockProductsData";
-
 // COMPONENTS
 import Products from "../components/Products";
 
@@ -18,11 +15,8 @@ const Homepage = () => {
 
   useEffect(() => {
     async function fetchProducts() {
-      const { data } = await axios
-        .get("http://127.0.0.1:8000/api/products/")
-        .then();
+      const { data } = await axios.get("/api/products/").then();
       setProducts(data.products);
-      console.log(data);
     }
 
     fetchProducts();
